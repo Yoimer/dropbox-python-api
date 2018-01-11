@@ -1,0 +1,7 @@
+this is the project objectives that i gave to my supvisor
+• To build and test remote home security camera (via Internet).
+• Provide 24/7 remote camera monitoring 
+• Store the security camera pictures in the could (Dropbox) 
+• Provide private live video stream for the security camera (YouTube)
+• Store the pictures locally on SD card
+1234556789
