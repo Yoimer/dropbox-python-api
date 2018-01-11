@@ -28,7 +28,10 @@ BACKUPPATH = '/<desitination filename>' # Keep the forward slash before destinat
 TOKEN = 'iTG45yQvU6sAAAAAAAAFZ2miQx9MlrEpJsXYb6Lf44YLfsoLkfslAE9c6kDpQzPV'
 
 LOCALFILE = '/usr/share/pi/dropbox-python-api/uploadme.txt'
-BACKUPPATH = '/Apps/yoimer1/uploadme.txt' # Keep the forward slash before destination filename
+
+# Keep the forward slash before destination filename
+# It is able to create a folder if this does not exists
+BACKUPPATH = '/test-folder/uploadme.txt' 
 
 # Uploads contents of LOCALFILE to Dropbox
 def backup():
