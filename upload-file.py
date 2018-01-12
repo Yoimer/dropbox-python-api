@@ -27,11 +27,11 @@ BACKUPPATH = '/<desitination filename>' # Keep the forward slash before destinat
 # Access token
 TOKEN = 'iTG45yQvU6sAAAAAAAAFZ2miQx9MlrEpJsXYb6Lf44YLfsoLkfslAE9c6kDpQzPV'
 
-LOCALFILE = '/usr/share/pi/dropbox-python-api/uploadme.txt'
+LOCALFILE = '/usr/share/pi/dropbox-python-api/uploader'
 
 # Keep the forward slash before destination filename
 # It is able to create a folder if this does not exists
-BACKUPPATH = '/test-folder/uploadme.txt' 
+BACKUPPATH = '/test-folder' 
 
 # Uploads contents of LOCALFILE to Dropbox
 def backup():
