@@ -116,9 +116,11 @@ def main():
                     else:
                         print(name, 'has changed since last sync')
                         if yesno('Refresh %s' % name, False, args):
-                            upload(dbx, fullname, folder, subfolder, name,
-                                   overwrite=True)
-            elif yesno('Upload %s' % name, True, args):
+                            upload(dbx, fullname, folder, subfolder, name, overwrite=True)
+            #elif yesno('Upload %s' % name, True, args):
+                #upload(dbx, fullname, folder, subfolder, name)
+            # upload new pictures or new files
+            else:
                 upload(dbx, fullname, folder, subfolder, name)
 
         # Then choose which subdirectories to traverse.
@@ -210,6 +212,7 @@ def yesno(message, default, args):
     Special answers:
     - q or quit exits the program
     - p or pdb invokes the debugger
+
     """
     if args.default:
         print(message + '? [auto]', 'Y' if default else 'N')
