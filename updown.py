@@ -4,6 +4,8 @@ This is an example app for API v2.
 
 from __future__ import print_function
 
+import urllib2
+import time
 import argparse
 import contextlib
 import datetime
@@ -52,6 +54,13 @@ parser.add_argument('--yes', '-y', action='store_true',help='Answer yes to all q
 parser.add_argument('--no', '-n', action='store_true',help='Answer no to all questions')
 parser.add_argument('--default', '-d', action='store_true',help='Take default answer on all questions')
 
+
+def internet_on():
+    try:
+        response=urllib2.urlopen('http://www.google.com',timeout=5)
+        return True
+    except urllib2.URLError as err: pass
+    return False
 
 def main():
     """Main program.
@@ -252,6 +261,15 @@ def stopwatch(message):
     finally:
         t1 = time.time()
         print('Total elapsed time for %s: %.3f' % (message, t1 - t0))
+
+while 1:
+    if internet_on() == 1:
+        print ("Network on")
+        main()
+    else:
+        print ("Network off")
+    time.sleep(5)
+    pass
 
 if __name__ == '__main__':
     main()
