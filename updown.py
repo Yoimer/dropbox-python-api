@@ -3,6 +3,7 @@ This is an example app for API v2.
 """
 
 from __future__ import print_function
+from dbgp.client import brk
 
 import urllib2
 import time
@@ -21,30 +22,8 @@ if sys.version.startswith('2'):
 import dropbox
 
 # OAuth2 access token.  TODO: login etc.
+
 TOKEN = 'iTG45yQvU6sAAAAAAAAFZ2miQx9MlrEpJsXYb6Lf44YLfsoLkfslAE9c6kDpQzPV'
-
-'''parser = argparse.ArgumentParser(description='Sync ~/Downloads to Dropbox')
-parser.add_argument('folder', nargs='?', default='Downloads',
-                    help='Folder name in your Dropbox')
-parser.add_argument('rootdir', nargs='?', default='~/Downloads',
-                    help='Local directory to upload')
-parser.add_argument('--token', default=TOKEN,
-                    help='Access token '
-                    '(see https://www.dropbox.com/developers/apps)')
-parser.add_argument('--yes', '-y', action='store_true',
-                    help='Answer yes to all questions')
-parser.add_argument('--no', '-n', action='store_true',
-                    help='Answer no to all questions')
-parser.add_argument('--default', '-d', action='store_true',
-                    help='Take default answer on all questions')'''
-
-'''parser = argparse.ArgumentParser(description='Sync ~/Downloads to Dropbox')
-parser.add_argument('folder', nargs='?', default='Downloads',help='Folder name in your Dropbox')
-parser.add_argument('rootdir', nargs='?', default='~/Downloads',help='Local directory to upload')
-parser.add_argument('--token', default=TOKEN, help='Access token ''(see https://www.dropbox.com/developers/apps)')
-parser.add_argument('--yes', '-y', action='store_true',help='Answer yes to all questions')
-parser.add_argument('--no', '-n', action='store_true',help='Answer no to all questions')
-parser.add_argument('--default', '-d', action='store_true',help='Take default answer on all questions')'''
 
 parser = argparse.ArgumentParser(description='Sync /usr/share/pi/dropbox-python-api/uploader to Dropbox')
 parser.add_argument('folder', nargs='?', default='uploader',help='Folder name in your Dropbox')
@@ -89,6 +68,8 @@ def main():
         sys.exit(1)
 
     dbx = dropbox.Dropbox(args.token)
+
+    #brk(host="192.168.0.179", port=9000)
 
     for dn, dirs, files in os.walk(rootdir):
         subfolder = dn[len(rootdir):].strip(os.path.sep)
@@ -268,7 +249,7 @@ while 1:
         main()
     else:
         print ("Network off")
-    time.sleep(5)
+    #time.sleep(5)
     pass
 
 if __name__ == '__main__':
