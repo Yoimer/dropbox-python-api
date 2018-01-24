@@ -23,7 +23,9 @@ import dropbox
 
 # OAuth2 access token.  TODO: login etc.
 
-TOKEN = 'iTG45yQvU6sAAAAAAAAFZ2miQx9MlrEpJsXYb6Lf44YLfsoLkfslAE9c6kDpQzPV'
+# token from tracking_2017@yahoo.com on dropbox
+
+TOKEN = 'QetmLmriG6AAAAAAAAAAIN0XXmNSakwhOtwWtoFCZ0BytBbFz2aq-X7IcXtMA6L4'
 
 #parser = argparse.ArgumentParser(description='Sync /usr/share/pi/dropbox-python-api/uploader to Dropbox')
 parser = argparse.ArgumentParser(description='Sync /home/pi/Dropbox/camera-images to Dropbox')
