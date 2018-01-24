@@ -1,0 +1,14 @@
+Instrucctions from this link will just install encoding and streaming feed
+which won't enough to stream as you did.
+
+Get the Youtube Stream name/key as mentioned above
+https://www.makeuseof.com/tag/live-stream-youtube-raspberry-pi/
+
+You will need to install the ffmpeg coder like shown here
+https://learn.adafruit.com/ultimate-youtube-live-camera/streaming-to-youtube
+
+The process takes like 35 minutes. So be patience.
+
+After installing issue this command
+
+raspivid -o - -t 0 -vf -hf -fps 24 -w 640 -h 360 -b 6000000 | ffmpeg -re -ar 44100 -ac 2 -acodec pcm_s16le -f s16le -ac 2 -i /dev/zero -f h264 -i - -vcodec copy -acodec aac -ab 128k -g 50 -strict experimental -f flv rtmp://a.rtmp.youtube.com/live2/zj12-8m68-1t2q-ckw4
