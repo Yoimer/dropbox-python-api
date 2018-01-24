@@ -1,5 +1,24 @@
 import RPi.GPIO as GPIO
 import time
+import os
+import datetime
+
+#get date and time in year-month-day-hour-minute-second format
+now = datetime.datetime.now()
+
+# assing path to the new taken picture
+OSCOMMAND = 'raspistill -o '
+PHOTOPATH = '/home/pi/Dropbox/camera-images/'
+EXTENSION = '.jpg'
+
+temp = now.strftime("%Y-%m-%d %H:%M:%S")
+
+# replace spaces by a minus symbol
+temp = temp.replace(' ', '-')
+
+# replace colons by a minus simbol
+temp = temp.replace(':', '-')
+
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(11, GPIO.IN)         #Read output from PIR motion sensor
@@ -14,3 +33,4 @@ while True:
              print "Intruder detected",i
              GPIO.output(3, 1)  #Turn ON LED
              time.sleep(0.1)
+             os.system(OSCOMMAND + PHOTOPATH + temp + EXTENSION)

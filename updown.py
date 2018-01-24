@@ -110,8 +110,9 @@ def main():
                         print(name, 'is already synced [content match]')
                     else:
                         print(name, 'has changed since last sync')
-                        if yesno('Refresh %s' % name, False, args):
-                            upload(dbx, fullname, folder, subfolder, name, overwrite=True)
+                        #if yesno('Refresh %s' % name, False, args):
+                            #upload(dbx, fullname, folder, subfolder, name, overwrite=True)
+                        upload(dbx, fullname, folder, subfolder, name)
             #elif yesno('Upload %s' % name, True, args):
                 #upload(dbx, fullname, folder, subfolder, name)
             # upload new pictures or new files
