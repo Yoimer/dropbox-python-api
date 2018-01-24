@@ -3,7 +3,7 @@ This is an example app for API v2.
 """
 
 from __future__ import print_function
-from dbgp.client import brk
+#from dbgp.client import brk
 
 import urllib2
 import time
@@ -25,9 +25,12 @@ import dropbox
 
 TOKEN = 'iTG45yQvU6sAAAAAAAAFZ2miQx9MlrEpJsXYb6Lf44YLfsoLkfslAE9c6kDpQzPV'
 
-parser = argparse.ArgumentParser(description='Sync /usr/share/pi/dropbox-python-api/uploader to Dropbox')
-parser.add_argument('folder', nargs='?', default='uploader',help='Folder name in your Dropbox')
-parser.add_argument('rootdir', nargs='?', default='/usr/share/pi/dropbox-python-api/uploader',help='Local directory to upload')
+#parser = argparse.ArgumentParser(description='Sync /usr/share/pi/dropbox-python-api/uploader to Dropbox')
+parser = argparse.ArgumentParser(description='Sync /home/pi/Dropbox/camera-images to Dropbox')
+#parser.add_argument('folder', nargs='?', default='uploader',help='Folder name in your Dropbox')
+parser.add_argument('folder', nargs='?', default='camera-images',help='Folder name in your Dropbox')
+#parser.add_argument('rootdir', nargs='?', default='/usr/share/pi/dropbox-python-api/uploader',help='Local directory to upload')
+parser.add_argument('rootdir', nargs='?', default='/home/pi/Dropbox/camera-images',help='Local directory to upload')
 parser.add_argument('--token', default=TOKEN, help='Access token ''(see https://www.dropbox.com/developers/apps)')
 parser.add_argument('--yes', '-y', action='store_true',help='Answer yes to all questions')
 parser.add_argument('--no', '-n', action='store_true',help='Answer no to all questions')
