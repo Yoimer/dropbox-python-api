@@ -1,5 +1,6 @@
 import RPi.GPIO as GPIO
 import time
+import os
 
 GPIO.setmode(GPIO.BCM)
 
@@ -13,6 +14,9 @@ try:
              GPIO.output(24, True)
              print('Button Pressed...')
              time.sleep(1)
+             print('Turning systemn off')
+             time.sleep(2)
+             os.system('sudo poweroff')
          else:
              GPIO.output(24, False)
              print('Button Not Pressed...')
