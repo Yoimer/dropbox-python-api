@@ -269,6 +269,15 @@ GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(11, GPIO.IN)         #Read output from PIR motion sensor
 GPIO.setup(3, GPIO.OUT)         #LED output pin
+
+# start streaming
+# REMEMBER start sudo modprobe bcm2835-v4l2 at boot time
+# by putting sudo modprobe bcm2835-v4l2 in /etc/rc.local
+# BEFORE sudo service motion start
+print("Starting motion")
+os.system("sudo service motion start")
+print("Motion started")
+
 while True:
        i=GPIO.input(11)
        if i==0:                 #When output from motion sensor is LOW
@@ -278,16 +287,34 @@ while True:
        elif i==1:               #When output from motion sensor is HIGH
              print ("Intruder detected")
              GPIO.output(3, 1)  #Turn ON LED
-            #get date and time in year-month-day-hour-minute-second format
+
+             #get date and time in year-month-day-hour-minute-second format
              now = datetime.datetime.now()
+
              # process now in temp variable
              temp = now.strftime("%Y-%m-%d %H:%M:%S")
+
              # replace spaces by a minus symbol
              temp = temp.replace(' ', '-')
+
              # replace colons by a minus simbol
              temp = temp.replace(':', '-')
+
+             # stop streaming
+             print("Stopping motion")
+             os.system("sudo service motion stop")
+             print("Motion stopped")
+
+             # take picture and save it in PHOTOPATH
              print(OSCOMMAND + PHOTOPATH + temp + EXTENSION)
              os.system(OSCOMMAND + PHOTOPATH + temp + EXTENSION)
+
+             # start streaming again
+             print("Starting motion")
+             os.system("sudo service motion start")
+             print("Motion started")
+
+             # start uploading to dropbox
              main()
 
 
