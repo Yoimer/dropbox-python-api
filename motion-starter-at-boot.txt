@@ -1,0 +1,14 @@
+Get on /etc
+sudo nano modules
+
+change as mentioned above
+
+# /etc/modules: kernel modules to load at boot time.
+#
+# This file contains the names of kernel modules that should be loaded
+# at boot time, one per line. Lines beginning with "#" are ignored.
+
+i2c-dev
+
+# camera with v4l2 driver
+bcm2835-v4l2
