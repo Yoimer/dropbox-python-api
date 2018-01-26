@@ -11,10 +11,10 @@ import os
 path where script resides,
 including its python2 invocation
 '''
-PATH = 'python /usr/share/pi/dropbox-python-api/'
+PATH = 'python /home/pi/Documents/'
 
 '''script name'''
-SCRIPT = 'updown.py'
+SCRIPT = 'pirtester.py'
 
 '''
 infinite monitoring
