@@ -276,6 +276,10 @@ GPIO.setup(3, GPIO.OUT)         #LED output pin
 # by putting sudo modprobe bcm2835-v4l2 in /etc/rc.local
 # BEFORE sudo service motion start
 print("Starting motion")
+os.system("sudo service motion restart")
+print("Motion restarted")
+
+print("Starting motion")
 os.system("sudo service motion start")
 print("Motion started")
 
