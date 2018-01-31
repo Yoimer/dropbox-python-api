@@ -252,7 +252,8 @@ def stopwatch(message):
 now = datetime.datetime.now()
 
 # assing path to the new taken picture
-OSCOMMAND = 'raspistill -o '
+#OSCOMMAND = 'raspistill -o '
+OSCOMMAND = 'raspistill -w 640 -h 380 -o '
 PHOTOPATH = '/home/pi/Dropbox/camera-images/'
 EXTENSION = '.jpg'
 
